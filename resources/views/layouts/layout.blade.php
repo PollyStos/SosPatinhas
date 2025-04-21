@@ -10,6 +10,7 @@
     @yield('title')
 </head>
 <body>
+    @include('layouts.navigation')
     @yield('content')
     <script src="js/script.js"></script>
 </body>

@@ -4,18 +4,16 @@
         <div class="flex justify-between h-16 items-center">
             <!-- Logo (somente a imagem) -->
             <div class="shrink-0 flex items-center">
-                <a href="{{ route('dashboard') }}">
+                <a href="{{ route('home.index') }}">
                     <img src="{{ asset('img/logoSosPatinhas.png') }}" class="h-8 w-auto" alt="Logo">
                 </a>
             </div>
 
             <!-- Navigation Links (Desktop) -->
             <div class="hidden space-x-6 sm:flex text-[#f0f8ff] font-medium">
-                <a href="#" class="hover:underline">Home</a>
-                <a href="#" class="hover:underline">Sobre</a>
-                <a href="#" class="hover:underline">Painel</a>
-                <a href="#" class="hover:underline">Blog</a>
-                <a href="#" class="hover:underline">Contato</a>
+                @foreach ( $nav as $item)
+                <a href="{{$item->url}}" class="hover:underline uppercase">{{$item->name}}</a>
+                @endforeach
             </div>
 
             <!-- Settings Dropdown (Desktop) -->
@@ -68,11 +66,9 @@
 
     <!-- Mobile Menu -->
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden bg-[#058158] text-[#f0f8ff] px-4 pt-2 pb-4">
-        <a href="#" class="block py-2">Home</a>
-        <a href="#" class="block py-2">Sobre</a>
-        <a href="#" class="block py-2">Painel</a>
-        <a href="#" class="block py-2">Blog</a>
-        <a href="#" class="block py-2">Contato</a>
+        @foreach ( $nav as $item)
+        <a href="{{$item->url}}" class="block py-2 uppercase">{{$item->name}}</a>
+        @endforeach
 
         <!-- Auth Info -->
         <div class="border-t border-[#f0f8ff] mt-4 pt-4">

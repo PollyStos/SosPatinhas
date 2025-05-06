@@ -3,11 +3,11 @@
 @section('title','Home')
 
 @section('content')
-    @include('components.about')
-    @include('components.galery')
-    @include('components.galery')
-    @include('components.feature')
+    @include('components.about', ['about' => $section->home->about ?? null])
+    @include('components.galery', ['galery' => $section->home->lost ?? null, 'bg' => '#058158', 'font' => '#f0f8ff'])
+    @include('components.galery', ['galery' => $section->home->found ?? null, 'bg' => '#f0f8ff', 'font' => '#058158'])
+    @include('components.feature', ['feature' => $section->home->donate ?? null])
     @include('components.depoiment')
-    @include('components.blog')
-    @include('components.message')
+    @include('components.blog', ['blog' => $section->home->blog ?? null])
+    @include('components.message', ['contact' => $section->home->contact ?? null])
 @endsection

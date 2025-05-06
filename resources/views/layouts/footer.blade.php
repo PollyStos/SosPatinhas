@@ -1,20 +1,17 @@
-<section class="py-12" style="background-color: #058158; color: #f0f8ff;">
+<section class="pt-12" style="background-color: #058158; color: #f0f8ff;">
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
         
-        <div>
+        <div class="px-4">
             <div class="flex items-center space-x-2 mb-4">
                 <img src="{{ asset('img/logoSosPatinhas.png') }}" class="h-8 w-auto">
             </div>
             <p class="text-sm">
-                No SOS Patinhas, nossa missão vai muito <br>
-                além de apenas encontrar pets perdidos. <br>
-                Queremos reunir famílias, restaurar lares <br>
-                e devolver a alegria que só um animal de <br>
-                estimação pode trazer.
+                No SOS Patinhas, nossa missão vai muito além de apenas encontrar pets perdidos.
+                Queremos reunir famílias, restaurar lares e devolver a alegria que só um animal de estimação pode trazer.
             </p>
         </div>
 
-        <div>
+        <div class="px-4">
             <h3 class="text-lg font-semibold mb-4">Links Úteis</h3>
             <ul class="space-y-1 text-sm">
                 <li><a href="#" class="hover:underline">Home</a></li>
@@ -27,7 +24,7 @@
             </ul>
         </div>
 
-        <div>
+        <div class="px-4">
             <h3 class="text-lg font-semibold mb-4">Contato</h3>
             <p class="text-sm mb-4">
                 Email: <a href="mailto:patinhas@gmail.com" class="underline">patinhas@gmail.com</a>
@@ -42,8 +39,8 @@
 
     </div>
 
-    <div class="mt-12 pt-4 text-sm text-center md:flex md:justify-between md:text-left border-t" style="border-color: #f0f8ff;">
-        <p class="mb-2 md:mb-0">Direitos reservados para SOS Patinhas</p>
+    <div class="mt-12 py-6 px-12 text-sm text-center md:flex md:justify-between md:text-left" style="background-color:#055639">
+        <p class="">Direitos reservados para SOS Patinhas</p>
         <p>Desenvolvido por João Guilherme, Polyana Santos, Yago Vieira</p>
     </div>
 </section>

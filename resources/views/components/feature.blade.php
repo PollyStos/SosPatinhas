@@ -1,11 +1,7 @@
 <section class="py-16 text-center" style="background-color: #058158;">
     <p class="max-w-3xl mx-auto text-base md:text-lg mb-8" style="color: #f0f8ff;">
-        Apoie SOS Patinhas
+        {{$feature->paragraph->value}}
     </p>
-
-    <button
-        class="px-8 py-3 rounded-full font-semibold" 
-        style="background-color: #f0f8ff; color: #000;">
-        Apoie
-    </button>
+    
+    <a href="{{route('contact.index')}}" class="px-10 py-3 rounded-full font-semibold mx-4 text-base md:text-lg"  style="background-color: #6dec9e; color: #058158;">Apoie</a>
 </section>

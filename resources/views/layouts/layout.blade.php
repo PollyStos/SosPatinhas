@@ -12,6 +12,8 @@
 <body>
     @include('layouts.navigation')
     @yield('content')
+    @include('layouts.footer')
+
     <script src="js/script.js"></script>
 </body>
 </html>

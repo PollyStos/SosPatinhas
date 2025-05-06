@@ -3,11 +3,11 @@
 @section('title','Home')
 
 @section('content')
-    @include('component.about')
-    @include('component.galery')
-    @include('component.galery')
-    @include('component.feature')
-    @include('component.depoiment')
-    @include('component.blog')
-    @include('component.message')
+    @include('components.about')
+    @include('components.galery')
+    @include('components.galery')
+    @include('components.feature')
+    @include('components.depoiment')
+    @include('components.blog')
+    @include('components.message')
 @endsection

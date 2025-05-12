@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('page_id')->constrained()->onDelete('cascade');
             $table->foreignId('section_page_id')->constrained()->onDelete('cascade');
             $table->foreignId('type_section_id')->constrained()->onDelete('cascade');
-            $table->text('value');
+            $table->longText('value');
             $table->integer('sequence')->default(0);
             
             $table->softDeletes();

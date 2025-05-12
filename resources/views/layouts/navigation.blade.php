@@ -1,101 +1,47 @@
-<nav x-data="{ open: false }" class="bg-[#058158] border-b border-[#058158]">
-    <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16 items-center">
-            <!-- Logo (somente a imagem) -->
-            <div class="shrink-0 flex items-center">
-                <a href="{{ route('home.index') }}">
-                    <img src="{{ asset('img/logoSosPatinhas.png') }}" class="h-8 w-auto" alt="Logo">
-                </a>
-            </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg_color_primary">
+    <div class="container">
+        <!-- Logo -->
+        <a class="navbar-brand" href="{{ route('home.index') }}">
+            <img src="{{ asset('img/logoSosPatinhas.png') }}" alt="Logo" class="h-8" style="height: 40px;">
+        </a>
 
-            <!-- Navigation Links (Desktop) -->
-            <div class="hidden space-x-6 sm:flex text-[#f0f8ff] font-medium">
-                @foreach ( $nav as $item)
-                <a href="{{$item->url}}" class="hover:underline uppercase">{{$item->name}}</a>
+        <!-- Botão hamburguer -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Itens do menu -->
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <!-- Links principais -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                @foreach ($nav as $item)
+                    <li class="nav-item">
+                        <a href="{{ $item->url }}" class="nav-link text-light text-uppercase">{{ $item->name }}</a>
+                    </li>
                 @endforeach
-            </div>
+            </ul>
 
-            <!-- Settings Dropdown (Desktop) -->
-            <div class="hidden sm:flex sm:items-center sm:ms-6">
-                <x-dropdown align="right" width="48">
-                    <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3 py-2 text-sm leading-4 font-medium rounded-md text-[#f0f8ff] hover:text-white focus:outline-none transition">
-                            @if (Auth::check())
-                                <div>{{ Auth::user()->name }}</div>
-                            @else
-                                <div>Visitante</div>
-                            @endif
-                            <svg class="ml-1 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                            </svg>
-                        </button>
-                    </x-slot>
-
-                    <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
-                        </x-dropdown-link>
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <x-dropdown-link :href="route('logout')"
-                                onclick="event.preventDefault(); this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
-                        </form>
-                    </x-slot>
-                </x-dropdown>
-            </div>
-
-            <!-- Hamburger (Mobile) -->
-            <div class="-mr-2 flex items-center sm:hidden">
-                <button @click="open = ! open"
-                    class="inline-flex items-center justify-center p-2 rounded-md text-[#f0f8ff] hover:text-white focus:outline-none transition">
-                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path :class="{ 'hidden': open, 'inline-flex': !open }" class="inline-flex"
-                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{ 'hidden': !open, 'inline-flex': open }" class="hidden"
-                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden bg-[#058158] text-[#f0f8ff] px-4 pt-2 pb-4">
-        @foreach ( $nav as $item)
-        <a href="{{$item->url}}" class="block py-2 uppercase">{{$item->name}}</a>
-        @endforeach
-
-        <!-- Auth Info -->
-        <div class="border-t border-[#f0f8ff] mt-4 pt-4">
-            <div class="font-semibold text-base">
-                @if (Auth::check())
-                    {{ Auth::user()->name }}
-                @else
-                    Visitante
-                @endif
-            </div>
-            @if (Auth::check())
-                <div class="text-sm">{{ Auth::user()->email }}</div>
-            @endif
-
-            <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
-                </x-responsive-nav-link>
-
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <x-responsive-nav-link :href="route('logout')"
-                        onclick="event.preventDefault(); this.closest('form').submit();">
-                        {{ __('Log Out') }}
-                    </x-responsive-nav-link>
-                </form>
-            </div>
+            <!-- Dropdown de usuário -->
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ Auth::check() ? Auth::user()->name : 'Visitante' }}
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                        @auth
+                            <li><a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Profile') }}</a></li>
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">{{ __('Log Out') }}</button>
+                                </form>
+                            </li>
+                        @else
+                            <li><span class="dropdown-item disabled">Não autenticado</span></li>
+                        @endauth
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>

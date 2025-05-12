@@ -1,12 +1,13 @@
-  <section class="flex justify-center items-center min-h-screen" style="background-color: #fff">
-    <div class="bg-[#f0f8ff] rounded-2xl shadow-md w-full max-w-6xl px-6 py-12">
-      <h1 class="text-4xl font-bold text-center mb-10 pt-12" style="color: #058158;">
-        {{$about->title->value}}
-      </h1>
-      
-      <div class="px-10 py-6">
-        <p class="text-justify text-base leading-relaxed">
-          {{$about->paragraph->value}}
+  <section class="d-flex justify-content-center align-items-center bg_color_white {{$margin?? null}}" style="{{$size ?? null}}">
+    <div class="bg_color_light_transparent rounded-3 shadow w-100 container px-3 py-5">
+      @if(isset($about->title))
+        <h1 class="font-bold text-center mb-5 pt-5 color_primary">
+          {{$about->title->value}}
+        </h1>
+      @endif
+      <div class="px-10 py-5">
+        <p class="text-justify">
+          {!!$about->paragraph->value !!}
         </p>
       </div>
     </div>

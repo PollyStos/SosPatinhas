@@ -3,7 +3,8 @@
 @section('title','Home')
 
 @section('content')
-    @include('components.about', ['about' => $section->home->about ?? null])
+    @include('components.banner', ['banner' => $section->home->banner ?? null])
+    @include('components.about', ['about' => $section->home->about ?? null,'size' => 'height: 70vh'])
     @include('components.galery', ['galery' => $section->home->lost ?? null, 'bg' => '#058158', 'font' => '#f0f8ff'])
     @include('components.galery', ['galery' => $section->home->found ?? null, 'bg' => '#f0f8ff', 'font' => '#058158'])
     @include('components.feature', ['feature' => $section->home->donate ?? null])

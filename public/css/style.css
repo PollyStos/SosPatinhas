@@ -42,11 +42,11 @@ a, a:hover {
     text-decoration: none !important;
 }
 
-.carousel-caption {
+/* .carousel-caption {
     left: 30% !important;
     bottom: 18rem !important;
     text-align: end !important;
-}
+} */
 
 .carousel-caption h5{
     font-size: 4rem;

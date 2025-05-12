@@ -8,7 +8,7 @@
                 <div>
                     <div class="flex items-center space-x-2 mb-4 rounded-3">
                         <div class="overflow-hidden d-flex justify-content-center align-items-center">
-                            <img src="{{ asset('public/' . $article->img) }}" class="object-cover" style="max-height: 12rem">
+                            <img src="{{ asset('public/img' . $article->img) }}" class="object-cover" style="max-height: 12rem">
                         </div>
                     </div>
                     <h4>{{ $article->title }}</h4>

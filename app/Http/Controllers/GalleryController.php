@@ -6,6 +6,7 @@ use App\Models\ContentPage;
 use App\Models\Page;
 use App\Models\Pets;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use stdClass;
 
 class GalleryController extends Controller
@@ -42,5 +43,48 @@ class GalleryController extends Controller
         $view->with('nav', Page::all());
 
         return $view;
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'pet_name' => 'required|string|max:255',
+            'pet_type' => 'required|in:dog,cat',
+            'pet_breed' => 'nullable|string|max:255',
+            'status' => 'required|in:lost,found',
+            'date' => 'required|date',
+            'locale' => 'nullable|string|max:255',
+            'pet_img' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $pet = new Pets();
+        $pet->pet_name = $request->pet_name;
+        $pet->pet_type = $request->pet_type;
+        $pet->pet_breed = $request->pet_breed;
+
+        // Salva imagem em public/img
+        if ($request->hasFile('pet_img')) {
+            $file = $request->file('pet_img');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('img'), $filename);
+            $pet->pet_img = $filename;
+        }
+
+        // Dados de acordo com status
+        $user = Auth::user();
+
+        if ($request->status === 'lost') {
+            $pet->date_lost = $request->date;
+            $pet->owner_id = $user->id;
+            $pet->last_view_locale = $request->locale;
+        } elseif ($request->status === 'found') {
+            $pet->date_found = $request->date;
+            $pet->finder_id = $user->id;
+            $pet->found_locale = $request->locale;
+        }
+
+        $pet->save();
+
+        return redirect()->route('formCadrastoPet')->with('success', 'Pet cadastrado com sucesso!');
     }
 }

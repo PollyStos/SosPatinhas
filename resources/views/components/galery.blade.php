@@ -66,48 +66,83 @@
         @endforeach
     </div>
 
+    <div class="container">
+        <!-- Botão para cadastro -->
+        <button class="px-5 py-1 rounded-pill font-semibold mx-1 mb-2 bg_color_primary color_white border-0" id="btnCadastroPet">Cadastrar Pet Perdido</button>
+    </div>
+
+    <!-- Modal de alerta -->
+<div class="modal fade" id="modalNotLogged" tabindex="-1" aria-labelledby="modalNotLoggedLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center">
+      <div class="modal-header">
+        <h5 class="modal-title w-100" id="modalNotLoggedLabel">Atenção</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        Você não está logado.
+      </div>
+      <div class="modal-footer justify-content-center">
+        <a href="{{ route('login') }}" class="btn btn-primary">Ir para Login</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        let currentType = 'all';
-        let currenttype = 'all';
-
-        const cards = document.querySelectorAll('.pet-card');
-
-        const updateCards = () => {
-            cards.forEach(card => {
-                const isLost = card.dataset.lost === 'true';
-                const isFound = card.dataset.found === 'true';
-                const type = card.dataset.type;
-
-                let show = true;
-
-                // Filtro tipo
-                if (currentType === 'lost' && !isLost) show = false;
-                if (currentType === 'found' && !isFound) show = false;
-
-                // Filtro raça
-                if (currenttype !== 'all' && currenttype !== type) show = false;
-
-                card.style.display = show ? 'block' : 'none';
-            });
-        };
-
-        document.querySelectorAll('.btn_lost_found').forEach(btn => {
-            btn.addEventListener('click', () => {
-                currentType = btn.dataset.filter;
-                updateCards();
-            });
+        document.getElementById('btnCadastroPet').addEventListener('click', function () {
+            @auth
+                // Redireciona se o usuário estiver autenticado
+                window.location.href = "{{ route('formCadrastoPet') }}";
+            @else
+                // Abre o modal se não estiver logado
+                var modal = new bootstrap.Modal(document.getElementById('modalNotLogged'));
+                modal.show();
+            @endauth
         });
+        
+        document.addEventListener('DOMContentLoaded', function () {
+            let currentType = 'all';
+            let currenttype = 'all';
 
-        document.querySelectorAll('.btn_type_filter').forEach(btn => {
-            btn.addEventListener('click', () => {
-                currenttype = btn.dataset.type;
-                updateCards();
+            const cards = document.querySelectorAll('.pet-card');
+
+            const updateCards = () => {
+                cards.forEach(card => {
+                    const isLost = card.dataset.lost === 'true';
+                    const isFound = card.dataset.found === 'true';
+                    const type = card.dataset.type;
+
+                    let show = true;
+
+                    // Filtro tipo
+                    if (currentType === 'lost' && !isLost) show = false;
+                    if (currentType === 'found' && !isFound) show = false;
+
+                    // Filtro raça
+                    if (currenttype !== 'all' && currenttype !== type) show = false;
+
+                    card.style.display = show ? 'block' : 'none';
+                });
+            };
+
+            document.querySelectorAll('.btn_lost_found').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    currentType = btn.dataset.filter;
+                    updateCards();
+                });
             });
-        });
 
-        updateCards(); // Inicializa
-    });
+            document.querySelectorAll('.btn_type_filter').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    currenttype = btn.dataset.type;
+                    updateCards();
+                });
+            });
+
+            updateCards(); // Inicializa
+        });
     </script>
 
 </section>

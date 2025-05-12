@@ -27,9 +27,18 @@ Route::get('/responsability',function() {
     return view('pages.responsability',compact('nav'));
 })->name('responsability');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+
+    // Página do formulário de cadastro de pet
+    Route::get('/formCadrastoPet', function () {
+        $nav = Page::all();
+        return view('pages.formCadrastoPet', compact('nav'));
+    })->name('formCadrastoPet');
+
+    // Rota para salvar pet
+    Route::post('/pets', [GalleryController::class, 'store'])->name('pets.store');
+
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

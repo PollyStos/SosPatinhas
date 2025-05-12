@@ -10,8 +10,8 @@
               <!-- Coluna da Imagem -->
               <div class="col-md-4 text-center position-relative mb-4 mb-md-0">
                 <div class="owner-img-wrapper position-relative d-inline-block">
-                  <img src="{{ asset('img/' . $dep->owner->img) }}" alt="Dono do Pet" class="rounded-circle owner-img" style="width: 200px; height: 200px; object-fit: cover;">
-                  <img src="{{ asset('img/' . $dep->pet_img) }}" alt="Imagem do Pet" class="rounded-circle pet-img position-absolute" style="width: 65px; height: 65px; bottom: 0; right: 0; object-fit: cover; border: 3px solid white;">
+                  <img src="{{ asset('public/img/' . $dep->owner->img) }}" alt="Dono do Pet" class="rounded-circle owner-img" style="width: 200px; height: 200px; object-fit: cover;">
+                  <img src="{{ asset('public/img/' . $dep->pet_img) }}" alt="Imagem do Pet" class="rounded-circle pet-img position-absolute" style="width: 65px; height: 65px; bottom: 0; right: 0; object-fit: cover; border: 3px solid white;">
                 </div>
               </div>
 

@@ -12,7 +12,7 @@
                     <div>
                         <div class="flex items-center space-x-2 mb-4">
                             <div class="overflow-hidden d-flex justify-content-center align-items-center galery_rounded_top">
-                                <img src="{{ asset('img/' . $item->img) }}" class="object-cover" style="max-height: 14rem">
+                                <img src="{{ asset('public/img/' . $item->img) }}" class="object-cover" style="max-height: 14rem">
                             </div>
                         </div>
                         <h4>{{ $item->title }}</h4>

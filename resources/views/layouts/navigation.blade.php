@@ -2,7 +2,7 @@
     <div class="container">
         <!-- Logo -->
         <a class="navbar-brand" href="{{ route('home.index') }}">
-            <img src="{{ asset('img/logoSosPatinhas.png') }}" alt="Logo" class="h-8" style="height: 40px;">
+            <img src="{{ asset('public/img/logoSosPatinhas.png') }}" alt="Logo" class="h-8" style="height: 40px;">
         </a>
 
         <!-- Botão hamburguer -->

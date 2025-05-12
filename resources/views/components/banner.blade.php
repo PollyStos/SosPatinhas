@@ -25,7 +25,7 @@ foreach ($banner->title as $index => $title) {
                 @foreach($dataBanner as $key => $item)
                     <div class="carousel-item {{ $key === 0 ? 'active' : '' }} h-100">
                         <div class="w-100 h-100 text-center position-relative">
-                            <img src="{{ asset('img/' . $item['image']) }}"
+                            <img src="{{ asset('public/img/' . $item['image']) }}"
                                  alt="Banner {{ $key + 1 }}"
                                  class="w-100 h-100"
                                  style="object-fit: cover; opacity: 70%;">

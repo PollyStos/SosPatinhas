@@ -196,7 +196,7 @@ class DatabaseSeeder extends Seeder
         $pets = [
             [
                 'pet_name' => 'Belinha',
-                'pet_img' => 'perdido1.jpeg',
+                'pet_img' => 'Belinha.png',
                 'pet_type' => 'Dog',
                 'pet_breed' => 'Beagle',
                 'owner_id' => 1,
@@ -205,7 +205,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'pet_name' => 'Joshua',
-                'pet_img' => 'perdido2.jpeg',
+                'pet_img' => 'Joshua.jpg',
                 'pet_type' => 'Cat',
                 'pet_breed' => 'Bengal',
                 'owner_id' => 2,
@@ -214,7 +214,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'pet_name' => 'Ginger',
-                'pet_img' => 'perdido3.jpeg',
+                'pet_img' => 'Ginger.jpg',
                 'pet_type' => 'Cat',
                 'pet_breed' => 'Persa',
                 'owner_id' => 3,
@@ -227,7 +227,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'pet_name' => 'Max',
-                'pet_img' => 'perdido4.jpeg',
+                'pet_img' => 'Max.png',
                 'pet_type' => 'Dog',
                 'pet_breed' => 'Golden Retriever',
                 'owner_id' => 5,
@@ -236,7 +236,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'pet_name' => 'Charlie',
-                'pet_img' => 'perdido5.jpeg',
+                'pet_img' => 'Charlie.jpg',
                 'pet_type' => 'Dog',
                 'pet_breed' => 'Poodle',
                 'owner_id' => 6,
@@ -249,7 +249,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'pet_name' => 'Bella',
-                'pet_img' => 'perdido1.jpeg',
+                'pet_img' => 'Bella.jpg',
                 'pet_type' => 'Dog',
                 'pet_breed' => 'Labrador',
                 'owner_id' => 8,
@@ -262,7 +262,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'pet_name' => 'Socks',
-                'pet_img' => 'perdido1.jpeg',
+                'pet_img' => 'Socks.jpg',
                 'pet_type' => 'Cat',
                 'pet_breed' => 'Rajado',
                 'owner_id' => 10,
@@ -271,7 +271,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'pet_name' => 'Rocky',
-                'pet_img' => 'perdido1.jpeg',
+                'pet_img' => 'Rocky.jpg',
                 'pet_type' => 'Dog',
                 'pet_breed' => 'Pitbull',
                 'owner_id' => 11,
@@ -284,7 +284,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'pet_name' => 'Luna',
-                'pet_img' => 'perdido1.jpeg',
+                'pet_img' => 'Luna.jpg',
                 'pet_type' => 'Cat',
                 'pet_breed' => 'Siamês',
                 'owner_id' => 13,
@@ -293,7 +293,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'pet_name' => 'Toby',
-                'pet_img' => 'perdido1.jpeg',
+                'pet_img' => 'Toby.jpg',
                 'pet_type' => 'Dog',
                 'pet_breed' => 'Bulldog',
                 'owner_id' => 14,
@@ -302,7 +302,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'pet_name' => 'Gato',
-                'pet_img' => 'perdido1.jpeg',
+                'pet_img' => 'perdido2.jpeg',
                 'pet_type' => 'Cat',
                 'pet_breed' => 'Maine Coon',
                 'finder_id' => 16,
@@ -311,7 +311,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'pet_name' => 'Jack',
-                'pet_img' => 'perdido1.jpeg',
+                'pet_img' => 'Jack.jpg',
                 'pet_type' => 'Dog',
                 'pet_breed' => 'Dachshund',
                 'owner_id' => 17,
@@ -324,7 +324,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'pet_name' => 'Gato',
-                'pet_img' => 'perdido1.jpeg',
+                'pet_img' => 'perdido5.jpeg',
                 'pet_type' => 'Cat',
                 'pet_breed' => 'Scottish Fold',
                 'finder_id' => 19,
@@ -333,7 +333,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'pet_name' => 'Coco',
-                'pet_img' => 'perdido1.jpeg',
+                'pet_img' => 'Coco.jpg',
                 'pet_type' => 'Dog',
                 'pet_breed' => 'Chihuahua',
                 'owner_id' => 20,
@@ -354,9 +354,9 @@ class DatabaseSeeder extends Seeder
                 'found_locale' => 'Parque Municipal'
             ],
             [
-                'pet_name' => 'Gato',
+                'pet_name' => 'Cão',
                 'pet_img' => 'perdido1.jpeg',
-                'pet_type' => 'Cat',
+                'pet_type' => 'Dog',
                 'pet_breed' => 'Raça Indefinida',
                 'finder_id' => 25,
                 'date_found' => '2025-02-01',
@@ -364,7 +364,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'pet_name' => 'Rosie',
-                'pet_img' => 'perdido1.jpeg',
+                'pet_img' => 'Rosie.jpg',
                 'pet_type' => 'Dog',
                 'pet_breed' => 'Shih Tzu',
                 'owner_id' => 26,
@@ -373,7 +373,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'pet_name' => 'Lucky',
-                'pet_img' => 'perdido1.jpeg',
+                'pet_img' => 'Lucky.jpg',
                 'pet_type' => 'Dog',
                 'pet_breed' => 'Cocker Spaniel',
                 'owner_id' => 27,

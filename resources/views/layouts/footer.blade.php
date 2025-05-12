@@ -3,7 +3,7 @@
         
         <div class="col-12 col-md-4 p-4">
             <div class="d-flex align-items-center space-x-2 mb-4">
-                <img src="{{ asset('img/logoSosPatinhas.png') }}" class="" style="width: 10rem">
+                <img src="{{ asset('public/img/logoSosPatinhas.png') }}" class="" style="width: 10rem">
             </div>
             <p class="text-sm">
                 No SOS Patinhas, nossa missão vai muito além de apenas encontrar pets perdidos.

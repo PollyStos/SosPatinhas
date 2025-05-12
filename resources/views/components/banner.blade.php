@@ -1,14 +1,14 @@
 @php
 if(!isset($page)){
-$dataBanner = [];
+    $dataBanner = [];
 
-foreach ($banner->title as $index => $title) {
-    $dataBanner[] = [
-        'title' => $title->value,
-        'subtitle' => $banner->subtitle[$index]->value ?? null,
-        'image' => $banner->image[$index]->value ?? null,
-    ];
-}
+    foreach ($banner->title as $index => $title) {
+        $dataBanner[] = [
+            'title' => $title->value,
+            'subtitle' => $banner->subtitle[$index]->value ?? null,
+            'image' => $banner->image[$index]->value ?? null,
+        ];
+    }
 } else {
     $dataBanner[] = [
         'title' => $banner->title->value,
@@ -25,12 +25,12 @@ foreach ($banner->title as $index => $title) {
                 @foreach($dataBanner as $key => $item)
                     <div class="carousel-item {{ $key === 0 ? 'active' : '' }} h-100">
                         <div class="w-100 h-100 text-center position-relative">
-                            <img src="{{ asset('public/img/' . $item['image']) }}"
+                            <img src="{{ asset('img/' . $item['image']) }}"
                                  alt="Banner {{ $key + 1 }}"
                                  class="w-100 h-100"
                                  style="object-fit: cover; opacity: 70%;">
 
-                            <div class="carousel-caption d-none d-md-block">
+                            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center text-center w-100 h-100">
                                 <h5 class="color_black">{{ $item['title'] }}</h5>
                                 <p class="color_black">{{ $item['subtitle'] }}</p>
                             </div>
@@ -38,6 +38,7 @@ foreach ($banner->title as $index => $title) {
                     </div>
                 @endforeach
             </div>
+
             @if (!isset($page))
                 
                 <!-- Controles -->

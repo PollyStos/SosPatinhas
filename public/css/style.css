@@ -39,7 +39,7 @@ body {
 }
 
 a, a:hover {
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 .carousel-caption {
@@ -66,7 +66,7 @@ a, a:hover {
 
 .custom-indicators {
     position: absolute;
-    bottom: -10rem !important;
+    bottom: -4rem !important;
     left: 35% !important;
     transform: translateX(-50%);
   }
@@ -92,4 +92,34 @@ a, a:hover {
 }
 .footer-a:hover, .email-a:hover {
     color: #cecece !important;
+}
+
+
+
+/* Ajuste para telas menores que 768px (dispositivos móveis) */
+@media (max-width: 767px) {
+    .carousel-caption {
+        left: 0% !important; /* Menos deslocamento para telas menores */
+        bottom: 5rem !important; /* Distância menor da parte inferior */
+        text-align: start !important; /* Alinha o texto para a esquerda */
+    }
+
+    .carousel-caption h5 {
+        font-size: 2rem; /* Tamanho de fonte ajustado */
+    }
+
+    .carousel-caption p {
+        font-size: 1rem; /* Ajuste para subtítulo */
+        padding-left: 15px; /* Adiciona padding para o subtítulo */
+        padding-right: 15px;
+    }
+}
+
+/* Ajuste para telas maiores que 768px (telas de tablets e maiores) */
+@media (min-width: 768px) {
+    .carousel-caption {
+        left: 0% !important; /* Posição original para telas grandes */
+        bottom: 6rem !important; /* Distância original da parte inferior */
+        text-align: end !important; /* Posição do texto para grandes telas */
+    }
 }

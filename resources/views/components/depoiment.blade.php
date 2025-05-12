@@ -1,17 +1,17 @@
-<section class="testimonial-section py-5 d-flex align-items-center bg_color_light_transparent" style="height: 100vh">
-  <div class="d-flex flex-column w-100 h-75 rounded-3  py-5">
+<section class="testimonial-section py-5 py-md-5 d-flex align-items-center bg_color_light_transparent">
+  <div class="d-flex flex-column w-100 h-75 rounded-3  py-5 py-md-5">
     <div id="testimonialCarousel" class="carousel slide" data-ride="carousel">
       
       <div class="carousel-inner mx-auto ">
         @foreach($depoiments as $index => $dep)
-          <div class="carousel-item mx-5 {{ $index === 0 ? 'active' : '' }}">
+          <div class="carousel-item mx-0 mx-md-5 {{ $index === 0 ? 'active' : '' }}">
             <div class="row align-items-center mx-5">
               
               <!-- Coluna da Imagem -->
               <div class="col-md-4 text-center position-relative mb-4 mb-md-0">
                 <div class="owner-img-wrapper position-relative d-inline-block">
-                  <img src="{{ asset('public/img/' . $dep->owner->img) }}" alt="Dono do Pet" class="rounded-circle owner-img" style="width: 200px; height: 200px; object-fit: cover;">
-                  <img src="{{ asset('public/img/' . $dep->pet_img) }}" alt="Imagem do Pet" class="rounded-circle pet-img position-absolute" style="width: 65px; height: 65px; bottom: 0; right: 0; object-fit: cover; border: 3px solid white;">
+                  <img src="{{ asset('img/' . $dep->owner->img) }}" alt="Dono do Pet" class="rounded-circle owner-img" style="width: 200px; height: 200px; object-fit: cover;">
+                  <img src="{{ asset('img/' . $dep->pet_img) }}" alt="Imagem do Pet" class="rounded-circle pet-img position-absolute" style="width: 65px; height: 65px; bottom: 0; right: 0; object-fit: cover; border: 3px solid white;">
                 </div>
               </div>
 

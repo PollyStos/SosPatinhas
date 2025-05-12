@@ -2,7 +2,7 @@
     <div class="container">
         <!-- Logo -->
         <a class="navbar-brand" href="{{ route('home.index') }}">
-            <img src="{{ asset('public/img/logoSosPatinhas.png') }}" alt="Logo" class="h-8" style="height: 40px;">
+            <img src="{{ asset('img/logoSosPatinhas.png') }}" alt="Logo" class="h-8" style="height: 40px;">
         </a>
 
         <!-- Botão hamburguer -->
@@ -25,23 +25,25 @@
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-light" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{ Auth::check() ? Auth::user()->name : 'Visitante' }}
+                        {{ Auth::check() ? Auth::user()->name : 'Conta' }}
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                         @auth
-                            <li><a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Profile') }}</a></li>
+                            <li><a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Perfil') }}</a></li>
                             <li>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                    <button type="submit" class="dropdown-item">{{ __('Log Out') }}</button>
+                                    <button type="submit" class="dropdown-item">{{ __('Sair') }}</button>
                                 </form>
                             </li>
                         @else
-                            <li><span class="dropdown-item disabled">Não autenticado</span></li>
+                            <li><a class="dropdown-item" href="{{ route('login') }}">{{ __('Entrar') }}</a></li>
+                            <li><a class="dropdown-item" href="{{ route('register') }}">{{ __('Cadastrar') }}</a></li>
                         @endauth
                     </ul>
                 </li>
             </ul>
+
         </div>
     </div>
 </nav>

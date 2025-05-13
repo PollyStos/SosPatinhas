@@ -33,6 +33,6 @@ class GoogleController extends Controller
 
         Auth::login($user);
 
-        return redirect()->intended('/pages.home');
+        return redirect()->intended('/');
     }
 }

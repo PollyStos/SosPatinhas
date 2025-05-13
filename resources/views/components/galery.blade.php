@@ -47,7 +47,7 @@
             @endif
                 <div class="flex items-center space-x-2 mb-4">
                     <div class="overflow-hidden d-flex justify-content-center align-items-center galery_rounded_top">
-                        <img src="{{ asset('public/img/'.$item->pet_img) }}" class="object-cover" style="max-height: 14rem">
+                        <img src="{{ asset('img/'.$item->pet_img) }}" class="object-cover" style="max-height: 14rem">
                     </div>
                 </div>
                 <h4>{{$item->pet_name}}</h4>

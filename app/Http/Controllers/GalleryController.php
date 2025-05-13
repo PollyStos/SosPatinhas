@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ContentPage;
 use App\Models\Page;
 use App\Models\Pets;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use stdClass;
@@ -45,8 +46,7 @@ class GalleryController extends Controller
         return $view;
     }
 
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         $request->validate([
             'pet_name' => 'required|string|max:255',
             'pet_type' => 'required|in:dog,cat',
@@ -87,4 +87,46 @@ class GalleryController extends Controller
 
         return redirect()->route('formCadrastoPet')->with('success', 'Pet cadastrado com sucesso!');
     }
+
+    public function userGallery() {
+        $user = Auth::user();
+
+        // Busca os pets onde o user é dono ou quem encontrou
+        $pets = Pets::where('owner_id', $user->id)
+                ->orWhere('finder_id', $user->id)
+                ->get();
+        
+        $users = User::all();
+
+        $nav = Page::all();
+        return view('pages.userGallery', compact('pets', 'nav','users'));
+    }
+    public function updateInfo(Request $request) {
+        $request->validate([
+            'pet_id' => 'required|exists:pets,id',
+            'status' => 'required|in:perdido,achado',
+            'user_id' => 'required|exists:users,id',
+            'locale' => 'nullable|string',
+            'date' => 'nullable|date',
+            'testimony' => 'nullable|string',
+        ]);
+        $pet = Pets::findOrFail($request->pet_id);
+        
+        if ($request->status === 'perdido') {
+            $pet->owner_id = $request->user_id;
+            $pet->last_view_locale = $request->locale;
+            $pet->date_lost = $request->date;
+        } else {
+            $pet->finder_id = $request->user_id;
+            $pet->found_locale = $request->locale;
+            $pet->date_found = $request->date;
+        }
+
+        $pet->depoiment = $request->testimony;
+        $pet->save();
+
+       return redirect()->route('home.index')->with('success', 'Informações atualizadas com sucesso!');
+    }
+
+
 }

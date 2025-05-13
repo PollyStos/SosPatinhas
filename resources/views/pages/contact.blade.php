@@ -11,19 +11,11 @@
         <div class="col-md-5 d-flex flex-column justify-content-center bg_color_light p-4">
             <h2 class="mb-4 font-bold">Entre em Contato</h2>
 
-            <p><i class="fas fa-envelope me-2"></i>contato@seudominio.com</p>
-            <p><i class="fas fa-phone me-2"></i>(11) 99999-9999</p>
+            <p><i class="fas fa-envelope me-2"></i>patinhas@gmail.com</p>
 
             <div class="mt-4">
-                <a href="https://facebook.com" target="_blank" class="me-3">
-                    <i class="fab fa-facebook fa-lg"></i>
                 </a>
-                <a href="https://instagram.com" target="_blank" class="me-3">
-                    <i class="fab fa-instagram fa-lg"></i>
-                </a>
-                <a href="https://whatsapp.com" target="_blank">
-                    <i class="fab fa-whatsapp fa-lg"></i>
-                </a>
+                <a href="https://www.instagram.com/sos_patinhasofc" target="_blank" class="me-3" style="color: #000"> <i class="fab fa-instagram fa-lg"></i> </a>
             </div>
         </div>
 

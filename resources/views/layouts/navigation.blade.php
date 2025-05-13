@@ -29,6 +29,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                         @auth
+                            <li><a class="dropdown-item" href="{{ route('user.galery') }}">{{ __('Meus cadastros de pets') }}</a></li>
                             <li><a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Perfil') }}</a></li>
                             <li>
                                 <form method="POST" action="{{ route('logout') }}">

@@ -9,17 +9,23 @@
               
               <!-- Coluna da Imagem -->
               <div class="col-md-4 text-center position-relative mb-4 mb-md-0">
-                <div class="owner-img-wrapper position-relative d-inline-block">
-                  <img src="{{ asset('img/' . $dep->owner->img) }}" alt="Dono do Pet" class="rounded-circle owner-img" style="width: 200px; height: 200px; object-fit: cover;">
-                  <img src="{{ asset('img/' . $dep->pet_img) }}" alt="Imagem do Pet" class="rounded-circle pet-img position-absolute" style="width: 65px; height: 65px; bottom: 0; right: 0; object-fit: cover; border: 3px solid white;">
+                <div>
+                  <div class="owner-img-wrapper position-relative d-inline-block">
+                    <img src="{{ asset('img/' . $dep->owner->img) }}" alt="Dono do Pet" class="rounded-circle owner-img" style="width: 200px; height: 200px; object-fit: cover;">
+                    <img src="{{ asset('img/' . $dep->pet_img) }}" alt="Imagem do Pet" class="rounded-circle pet-img position-absolute" style="width: 65px; height: 65px; bottom: 0; right: 0; object-fit: cover; border: 3px solid white;">
+                  </div>
+                    <p class="mt-2">
+                      {{ $dep->pet_name }} com seu dono(a) {{ $dep->owner->name }}
+                    </p>
                 </div>
               </div>
 
               <!-- Coluna de Texto -->
               <div class="col-md-6">
                 <h4 class="font-weight-bold">{{ $dep->pet_name }} foi encontrado!</h4>
-                <h6 class="text-muted mb-3">Por {{ $dep->owner->name }}</h6>
+                <h6 class="text-muted mb-3">Por {{ $dep->found->name }}</h6>
                 <p class="lead">{{ $dep->depoiment }}</p>
+                <p class="lead">Depoimento de {{ $dep->found->name }}</p>
               </div>
 
             </div>

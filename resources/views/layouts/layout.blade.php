@@ -14,7 +14,7 @@
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
 
 </head>
-<body>
+<body data-page="{{ $page ?? '' }}">
     @include('layouts.navigation')
     @yield('content')
     @include('layouts.footer')

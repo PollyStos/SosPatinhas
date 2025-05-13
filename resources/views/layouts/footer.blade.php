@@ -32,9 +32,7 @@
                 </p>
                 <p class="text-sm font-semibold mb-2">Redes Sociais</p>
                 <div class="d-flex gap-2">
-                    @foreach (range(1, 4) as $i)
-                        <div class="rounded-circle" style="width: 24px; height: 24px; background-color: #f0f8ff;"></div>
-                    @endforeach
+                        <div><a href="https://www.instagram.com/sos_patinhasofc" target="_blank" class="me-3 color_white"> <i class="fab fa-instagram fa-lg"></i> </a></div>
                 </div>
             </div>
 

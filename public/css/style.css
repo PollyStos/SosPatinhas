@@ -42,11 +42,11 @@ a, a:hover {
     text-decoration: none !important;
 }
 
-/* .carousel-caption {
-    left: 30% !important;
-    bottom: 18rem !important;
-    text-align: end !important;
-} */
+.pet-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
 .carousel-caption h5{
     font-size: 4rem;

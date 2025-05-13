@@ -117,7 +117,7 @@
                     @csrf
 
                     <div class="modal-header">
-                        <h5 class="modal-title" id="editPetModalLabel"> Editar Informações do Pet - {{ $item->owner_id ? 'Perdido' : 'Achado' }} </h5>
+                        <h5 class="modal-title" id="editPetModalLabel"> Editar Informações do Pet - {{ isset($item)?($item->owner_id ? 'Perdido' : 'Achado'): '' }} </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                     </div>
 
@@ -128,7 +128,7 @@
 
                     <div class="d-flex">
                         <div class="col-5 mb-3 me-3 text-start">
-                            <label for="userName" class="form-label">{{ !$item->owner_id ? 'Dono' : 'Quem encontrou' }}</label>
+                            <label for="userName" class="form-label">{{ isset($item)?(!$item->owner_id ? 'Dono' : 'Quem encontrou'):'' }}</label>
                             <input type="text" id="userName" class="form-control" autocomplete="off">
                             <input type="hidden" name="user_id" id="userId">
                             <ul class="list-group mt-1" id="userSuggestions"></ul>
